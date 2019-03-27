@@ -1,0 +1,328 @@
+var dataStuff = {};
+var loopLimit = 1;
+var currentLoop = 0;
+var stopFrameAnimation = false;
+var legalDuration = 2000;
+
+var ctaBtnY = 0;
+var cLine1 = {};
+
+function pageLoadedHandler() {
+	populateData();
+	setListeners();
+}
+
+function populateData(){
+	// Dynamic Content variables and sample values
+
+	function bgExitHandler(e) {
+		Enabler.exit('Background Exit');
+	}
+	document.getElementById('bg-exit').addEventListener('click', bgExitHandler, false);
+	//document.getElementById('bg-exit').addEventListener('touchmove', bgExitHandler, false);
+
+	
+	function ctaExitHandler(e) {
+		Enabler.exit('CTA Exit');
+	}
+	document.getElementById('cta-btn').addEventListener('click', ctaExitHandler, false);
+	//document.getElementById('cta-btn').addEventListener('click', ctaExitHandler, false);
+	
+	updatePosition();
+	showFrame1();
+    tween.to("main", 0, {opacity:"1"});
+}
+
+function showFrame1(){
+    
+	currentLoop ++;
+	var hideFrame1 = function(){
+        tween.to("chart", .5, {opacity:".5"});
+        tween.to("graph1", .5, {opacity:".5"});
+        tween.to("graph2", .5, {opacity:".5"});
+    };
+	
+
+	tween.to("tint", 2, {opacity: "0"});
+	tween.to("bg", 9, {top: "0px"});
+
+	
+  	  	setTimeout(function(){
+			tween.to("line1", 0.5, {opacity:"1"});
+		}, 500);
+	
+	setTimeout(function(){
+			tween.to("line1", 0.5, {top:"55px"});
+			tween.to("line1b", 0.5, {opacity:"1", top:"80px"});
+			tween.to("line1c", 0.5, {opacity:"1", top:"80px", delay:0.5});
+		}, 750);
+		
+			setTimeout(function(){
+			tween.to("line1", 0.5, {top:"40px"});
+			tween.to("line1b", 0.5, {opacity:"1", top:"65px"});
+			tween.to("line1c", 0.5, {opacity:"1", top:"65px"});
+			tween.to("line1d", 0.5, {opacity:"1", top:"90px"});
+			tween.to("line1e", 0.5, {opacity:"1", top:"90px", delay:0.5});
+		}, 1500);
+	
+	setTimeout(function(){
+			tween.to("cont1", 0.5, {left:"-180px"});
+		}, 3500);
+
+    
+	setTimeout(function(){
+		setTimeout(function(){showFrame3();}, 0);
+		hideFrame1();
+	}, 3750);
+}
+
+function showFrame3(stopHere){
+	var hideFrame3 = function(){
+        tween.to("chart", .5, {opacity:".5"});
+        tween.to("graph1", .5, {opacity:".5"});
+        tween.to("graph2", .5, {opacity:".5"});
+	};
+		tween.to("line3", 0.5, {opacity:"1", left:"20px"});
+		tween.to("gradient", .5, {opacity:"1", delay:0.5});
+		tween.to("ftse", 0.5, {left: "132px", opacity:"1", delay:0.5});
+		
+	
+			setTimeout(function(){
+			tween.to("line3", 0.5, {opacity:"0"});	
+			tween.to("cta-btn", 0.5, {opacity:"0"});	
+			tween.to("disclaimer", .5, {opacity:"1"});
+			tween.to("tint2", .5, {opacity:"0.7"});
+		}, 2750);
+		
+		
+					setTimeout(function(){
+			tween.to("disclaimer", .5, {opacity:"0"});
+			tween.to("tint2", .5, {opacity:"0"});
+			tween.to("line3", 0.5, {opacity:"1", left:"20px"});
+			tween.to("cta-btn", 0.5, {opacity:"1", top: "120px"});
+		}, 9000);
+	
+	
+
+		
+
+	   
+	setTimeout(function(){
+		var legalElementText = document.getElementById('legal').lastElementChild.innerHTML;
+		if(stopHere){
+			stopFrameAnimation = true;
+		}else{
+			if(legalElementText == "" || legalElementText == undefined){ //No Final Legal frame
+				if(loopLimit == 0 || currentLoop < loopLimit){
+					hideFrame3();
+                    resetFrame();
+					setTimeout(function(){ 
+                        showFrame1();
+                    }, 500);
+				}else{
+					stopFrameAnimation = true;
+				}
+			}else{
+                tween.to("cta-btn", .5, {opacity:"0"});
+                tween.to("disclaimer", .5, {opacity:"0"});
+				setTimeout(function(){ showLegal(); }, 1000);
+			}
+		}
+	}, 8750);	
+}
+
+function showLegal(){
+	tween.to("legal", 1, {opacity:"1"});
+	var hideLegal = function(){tween.to("legal", 1, {opacity:"0"});};
+	if(loopLimit == 0 || currentLoop < loopLimit){
+		setTimeout(function(){
+            resetFrame();
+			hideLegal();
+			setTimeout(function(){showFrame1();}, 2000);
+		}, legalDuration);
+	}else{
+		setTimeout(function(){
+            resetFrame();
+			hideLegal();
+			var line3Text = document.getElementById('line3').lastElementChild.innerHTML;
+			if(line3Text == "" || line3Text == undefined) showFrame2(true); else showFrame3(true);
+		}, legalDuration);
+	}
+}
+
+function updatePosition(){
+	var line1 = document.getElementById('line1');
+	var line2 = document.getElementById('line2');
+	var line3 = document.getElementById('line3');
+	var cta_btn = document.getElementById('cta-btn');
+	var disclaimer = document.getElementById('disclaimer');
+	
+	var mainWidth = document.getElementById("main").offsetWidth;
+	var mainHeight = document.getElementById("main").offsetHeight;
+	var line2Height = line2.offsetHeight;
+	var line3Height = line3.offsetHeight;
+	var ctaBtnHeight = cta_btn.offsetHeight;	
+	var ctaBtnWidth = cta_btn.offsetWidth;
+	var disclaimerHeight = disclaimer.offsetHeight;
+	
+	if(cta_btn.lastElementChild.innerHTML == "") {
+		cta_btn.style.display = "none";
+	}else{
+		cta_btn.style.display = "inline";
+	}
+	var highestLine = 0;
+	if(line2Height > line3Height) highestLine = line2Height; else highestLine = line3Height;
+	
+	var lineY = 10;
+	//var ctaBtnY = mainHeight - 60;
+	var discY = (mainHeight - disclaimerHeight - 10);
+	
+	//cta_btn.style.top = ctaBtnY + "px";
+	//cta_btn.style.left = mainWidth/2 - ctaBtnWidth/2 + "px";
+	//disclaimer.style.top =  discY + "px";
+    
+    var line3Text = document.getElementById('line3').lastElementChild.innerHTML;
+    if(line3Text == "" || line3Text == undefined){
+        document.getElementById("chart").style.backgroundPositionX = -mainWidth+"px";
+        document.getElementById("graph1").style.backgroundPositionX = -mainWidth+"px";
+        document.getElementById("graph2").style.backgroundPositionX = -mainWidth+"px";
+    }else{
+        document.getElementById("chart").style.backgroundPositionX = "0px";
+        document.getElementById("graph1").style.backgroundPositionX = "0px";
+        document.getElementById("graph2").style.backgroundPositionX = "0px";
+    }
+}
+
+function resetFrame(){
+ 	tween.to("tint", 0.25, {opacity:"1"});
+	tween.to("bg", 0, {opacity:"1", top:"-100px", delay:0.25});
+	tween.to("cont1", 0.5, {left:"0px"});
+	
+	tween.to("line1", 0, {opacity:"0", top:"80px"});
+	tween.to("line1b", 0, {opacity:"0", top:"100px"});
+	tween.to("line1c", 0, {opacity:"0", top:"80px"});
+	tween.to("line1d", 0, {opacity:"0", top:"110px"});
+	tween.to("line1e", 0, {opacity:"0", top:"90px"});
+	tween.to("line3", 0.5, {opacity:"0", left:"-50px"});
+	
+	
+}
+function resetBanner(){
+	if(stopFrameAnimation){		
+		stopFrameAnimation = false;
+		setTimeout(function(){
+			resetFrame();
+		}, 500);
+		
+		rollOverReplayTracking();
+		setTimeout(function(){
+			showFrame1();
+		}, 1000);		
+	}
+}
+function parseBannerCode(bannerCode){
+	var dataObj={};
+	var dataList = bannerCode.split("||");
+	var param;
+	for(var i=0; i < dataList.length; i++){
+		param = String(dataList[i]).split("=");
+		dataObj[param[0]] = unescape((String(param[1])));
+	}
+	return dataObj;
+}
+
+function setListeners(){
+	// restart animation on rollover
+	var bg_exit = document.getElementById('bg-exit');
+	var cta_btn = document.getElementById('cta-btn');
+	
+	bg_exit.onmouseover = function(e){
+		resetBanner(); 
+		bannerRollover();
+	};
+	bg_exit.onmouseout = function(e){
+		
+		bannerRollout();
+	};
+	cta_btn.onmouseover = ctaRollover;
+	cta_btn.onmouseout = ctaRollout;
+}
+function bannerRollover(){
+	Enabler.counter("mainClickthrough OVER");
+	Enabler.startTimer("mainClickthroughTimer");
+}
+function bannerRollout(){
+	Enabler.counter("mainClickthrough OUT");
+	Enabler.stopTimer("mainClickthroughTimer");
+}
+function ctaRollover(){
+	Enabler.counter("cta OVER");
+	Enabler.startTimer("mainClickthroughTimer");
+}
+function ctaRollout(){
+	Enabler.counter("cta OUT");
+	Enabler.stopTimer("mainClickthroughTimer");
+}
+function rollOverReplayTracking(){
+	Enabler.counter("mainClickthrough OVER REPLAY");
+}
+//-------------------------------- TWEEN
+function Tween(){
+	this._duration = 0;
+	this._delayTransition = 0;
+	this._elementTag;
+}
+
+Tween.prototype = {
+	to : function(elementTagID, duration, properties){
+		this._elementTag = document.getElementById(elementTagID);
+		this._duration = duration;
+		this._delayTransition = 0;
+		var transitionValue = "";
+		var completeFunction = {finish:""};
+		var easing = "";
+		
+		for (var prop in properties) {
+			switch(prop){
+				case "delay": this._delayTransition = properties[prop];break;
+				case "onComplete": completeFunction.finish = properties[prop]; break;
+				case "ease": easing = properties[prop]; break;
+				default:
+					this._elementTag.style[prop] = properties[prop];
+					transitionValue += (prop + " "+this._duration+"s,");
+			}
+		}
+		transitionValue = transitionValue.substring(0, transitionValue.length - 1);
+		
+		this._elementTag.style.transition = transitionValue;
+		this._elementTag.style.WebkitTransition = transitionValue;
+		this._elementTag.style.transitionDelay = this._delayTransition+"s";
+		this._elementTag.style.WebkitTransitionDelay = this._delayTransition+"s";
+		
+		if(easing){
+			this._elementTag.style.transitionTimingFunction = easing;
+			this._elementTag.style.WebkitTransitionTimingFunction = easing;
+		}
+		
+		if(completeFunction.finish != ""){
+			function tweenEnd(evt){
+				var targetElement = evt.target;
+				targetElement.removeEventListener("transitionend", tweenEnd, false);
+				targetElement.removeEventListener("webkitTransitionEnd", tweenEnd, false);
+				targetElement.removeEventListener("mozTransitionEnd", tweenEnd, false);
+				targetElement.removeEventListener("msTransitionEnd", tweenEnd, false);
+				targetElement.removeEventListener("oTransitionEnd", tweenEnd, false);
+				completeFunction.finish();
+			};			
+			this._elementTag.addEventListener("transitionend", tweenEnd, false);
+			this._elementTag.addEventListener("webkitTransitionEnd", tweenEnd, false);
+			this._elementTag.addEventListener("mozTransitionEnd", tweenEnd, false);
+			this._elementTag.addEventListener("msTransitionEnd", tweenEnd, false);
+			this._elementTag.addEventListener("oTransitionEnd", tweenEnd, false);
+		}
+	}
+}
+var tween = new Tween();
+//-----------------
+
+pageLoadedHandler();

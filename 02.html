@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.cnblogs.com/frankdeng/p/9630303.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+    <title>Git（二）使用git管理文件版本（TortoiseGit ） - Frankdeng - 博客园</title>
+<meta property="og:description" content="一.创建版本库 什么是版本库呢？版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都">
+    <link type="text/css" rel="stylesheet" href="./02_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./02_files/bundle-ThinkInside.css">
+<link type="text/css" rel="stylesheet" href="./02_files/428549.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./02_files/bundle-ThinkInside-mobile.css">
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/frankdeng/rss">
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/frankdeng/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/frankdeng/wlwmanifest.xml">
+    <script src="./02_files/osd.js.下載"></script><script src="./02_files/pubads_impl_rendering_2019032001.js.下載"></script><script async="" src="./02_files/analytics.js.下載"></script><script type="text/javascript" src="./02_files/encoder.js.下載"></script><script src="./02_files/jquery-2.2.0.min.js.下載"></script>
+    <script>var currentBlogId=428549;var currentBlogApp='frankdeng',cb_enable_mathjax=false;var isLogined=false;</script>
+    <script src="./02_files/blog-common.js.下載" type="text/javascript"></script>
+<link rel="preload" href="./02_files/f.txt" as="script"><script type="text/javascript" src="./02_files/f.txt"></script><link rel="preload" href="./02_files/f(1).txt" as="script"><script type="text/javascript" src="./02_files/f(1).txt"></script><script src="./02_files/pubads_impl_2019032001.js.下載" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-32/html/container.html"><style type="text/css">.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}</style><script src="./02_files/share.js.下載"></script></head>
+<body>
+<a name="top"></a>
+
+<div id="page_begin_html"><script type="text/javascript">window['__document_write_ajax_callbacks__']['2']();</script><script type="text/javascript">window['__document_write_ajax_callbacks__']['1']();</script>
+
+<span id="back-to-top"><a href="https://www.cnblogs.com/frankdeng/p/9630303.html#top">返回顶部</a></span>
+
+<a href="https://github.com/dengtianxiang"><img style="position: absolute; top: 37px; right: 0; border: 0" alt="Fork me on GitHub" src="./02_files/1054809-20171203034734069-560687701.png"></a></div><script>load_page_begin_html();</script>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/frankdeng/"><img id="blogLogo" src="./02_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/frankdeng/">Frankdeng</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/frankdeng/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Frankdeng">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/frankdeng/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/frankdeng/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 125&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 21</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+        <div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/frankdeng/p/9630303.html">Git（二）使用git管理文件版本（TortoiseGit ）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><h2 id="blogTitle0">一.<strong>创建版本库</strong></h2>
+<p>&nbsp; &nbsp;什么是版本库呢？版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。由于git是分布式版本管理工具，所以git在不需要联网的情况下也具有完整的版本管理能力。</p>
+<p>创建一个版本库非常简单，可以使用git bash也可以使用tortoiseGit。首先，选择一个合适的地方，创建一个空目录（D:\Develop\Git\git）。</p>
+<h4><strong>使用GitBash，</strong>在当前目录中点击右键中选择Git Bash来启动。</h4>
+<p><img src="./02_files/1385722-20180911145522221-226785649.png" alt=""></p>
+<p>黑窗口创建仓库执行命令：&nbsp;$ git init</p>
+<p><img src="./02_files/1385722-20180911145735765-2110032204.png" alt=""></p>
+<h4>使用tortoiseGit</h4>
+<p>使用TortoiseGit时只需要在目录（D:\Develop\Git\git）中点击右键菜单选择“Git在这里创建版本库”</p>
+<p><img src="./02_files/1385722-20180911150026605-2104480057.png" alt=""></p>
+<p>点击确定，创建成功&nbsp;。</p>
+<p><img src="./02_files/1385722-20180911150300530-1180533397.png" alt=""></p>
+<p>版本库创建成功，会在此目录下创建一个.git的隐藏目录，如上所示。</p>
+<p><strong>&nbsp; 版本库：“.git”目录就是版本库，将来文件都需要保存到版本库中。</strong><strong>工作目录：包含“.git”目录的目录，也就是.git目录的上一级目录就是工作目录。只有工作目录中的文件才能保存到版本库中。</strong></p>
+<h2 id="blogTitle1">二.<strong>添加文件</strong></h2>
+<h3 id="blogTitle2"><strong>1.添加文件步骤</strong></h3>
+<p>在D:\Develop\Git\git目录下创建一个test.txt文件，刷新如下，标记蓝色？</p>
+<p><img src="./02_files/1385722-20180911152639878-1541082315.png" alt=""></p>
+<p>在git目录内点击test.txt文件右键客户端工具点击添加&nbsp;</p>
+<p><img src="./02_files/1385722-20180911162837836-1076489294.png" alt=""></p>
+<p>提示添加成功，点击确定，此时&nbsp;标记蓝色？变为蓝色 +</p>
+<p><img src="./02_files/1385722-20180911163007458-501110464.png" alt=""></p>
+<p>此时，git目录里隐藏文件 .git 会多差一个暂存区index文件。</p>
+<p><img src="./02_files/1385722-20180911163323645-1344764119.png" alt=""></p>
+<p><strong>提交文件</strong></p>
+<p><strong>在test.txt上再次点击右键选择“提交”，此时将文件保存至版本库中。</strong></p>
+<p><img src="./02_files/1385722-20180911163718810-1755042931.png" alt=""></p>
+<p>日志信息输入提交信息（必填项）</p>
+<p><img src="./02_files/1385722-20180911164016294-1257787633.png" alt=""></p>
+<p>点击提交</p>
+<p><img src="./02_files/1385722-20180911164142062-1752080344.png" alt=""></p>
+<p>至此，添加文件并提交到本地仓库完成，文本文件变为带“√”号的图标：标记蓝色 + 变为绿色√</p>
+<p><img src="./02_files/1385722-20180911164301619-1670234560.png" alt=""></p>
+<h3 id="blogTitle3"><strong>2.</strong><strong>工作区和暂存区</strong></h3>
+<p>Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念。</p>
+<p>&nbsp; &nbsp;什么是工作区（Working Directory）？</p>
+<p>工作区就是你在电脑里能看到的目录，比如我的git文件夹就是一个工作区。其实git目录是工作区，在这个目录中的“.git”隐藏文件夹才是版本库。</p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
+<p>如下图所示：</p>
+<p><img src="./02_files/1385722-20180911164948389-1060228345.png" alt=""></p>
+<p>分支和HEAD的概念我们稍后再讲。前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
+<p>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<p>因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+<h2 id="blogTitle4"><strong>三.修改文件</strong></h2>
+<h3 id="blogTitle5"><strong>1.提交修改</strong></h3>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;被版本库管理的文件不可避免的要发生修改，此时只需要直接对文件修改即可。修改完毕后需要将文件的修改提交到版本库。在修改后的test.txt(修改后图标变成红色感叹号)文件上点击右键，然后选择“提交”，和之前的提交方式一样。</p>
+<p><img src="./02_files/1385722-20180911170835869-590184130.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911170933099-2013116633.png" alt=""></p>
+<h3 id="blogTitle6"><strong>2.</strong><strong>查看修改历史</strong></h3>
+<p>在开发过程中可能会经常查看代码的修改历史，或者叫做查看代码的修改日志。用来查看某个版本是谁修改的，什么时间修改的，修改了哪些内容。</p>
+<p>可以在文件上点击右键选择“显示日志”来查看文件的修改历史。</p>
+<p><img src="./02_files/1385722-20180911171154992-266789172.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911171253427-539616349.png" alt=""></p>
+<h3 id="blogTitle7"><strong>3.</strong><strong>差异比较</strong></h3>
+<p>当文件内容修改后，需要和修改之前对比一下修改了哪些内容此时可以使用“比较差异功能”</p>
+<p><img src="./02_files/1385722-20180911172417395-432473073.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911172509955-1413215708.png" alt=""></p>
+<h3 id="blogTitle8"><strong>4.</strong><strong>还原修改</strong></h3>
+<p>当文件修改后不想把修改的内容提交，还想还原到未修改之前的状态。此时可以使用“还原”功能。</p>
+<p><img src="./02_files/1385722-20180911172850109-1461650730.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911172941732-891227186.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911173005822-1631132291.png" alt=""></p>
+<p><strong>注意：此操作会撤销所有未提交的修改，所以当做还原操作是需要慎重慎重！！！</strong></p>
+<h2 id="blogTitle9"><strong>四.删除文件</strong></h2>
+<p>需要删除无用的文件时可以使用git提供的删除功能直接将文件从版本库中删除。</p>
+<p><img src="./02_files/1385722-20180911173211756-1883163975.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911173251777-1231199737.png" alt=""></p>
+<h2 id="blogTitle10"><strong>五.还原删除文件</strong></h2>
+<p><strong><img src="./02_files/1385722-20180911173444625-1656195645.png" alt=""></strong></p>
+<p><img src="./02_files/1385722-20180911173515700-1395800776.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911173548360-417518912.png" alt=""></p>
+<h2 id="blogTitle11"><strong>六.案例：将项目提交到版本库</strong></h2>
+<p>第一步：把已有java工程solr-demo复制到工作目录中</p>
+<p><img src="./02_files/1385722-20180911174022733-1396876763.png" alt=""></p>
+<p>第二步：将工程添加到暂存区。</p>
+<p><img src="./02_files/1385722-20180911174206629-1391726588.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911174319907-1394184140.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911174354272-416182388.png" alt=""></p>
+<p>点击确定完成暂存区添加。</p>
+<p>三、忽略文件或文件夹</p>
+<p>在此工程中，并不是所有文件都需要保存到版本库中的例如“.idea”目录及目录下的文件就可以忽略。好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</p>
+<p>如果使用TortoiseGit的话可以使用菜单项直接进行忽略。(这里以IDEA项目演示）</p>
+<p><img src="./02_files/1385722-20180911175728937-615247073.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911180003467-238191170.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911180131801-18581382.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911180228857-2004818342.png" alt=""></p>
+<p>选择保留本地文件。完成后在此文件夹内会多出一个.gitignore文件，这个文件就是文件忽略文件，当然也可以手工编辑。其中的内容就是把.idea目录忽略掉。</p>
+<p>同样步骤再次把target目录忽略</p>
+<p><img src="./02_files/1385722-20180911180403914-904085359.png" alt=""></p>
+<p>四、提交代码</p>
+<p>将代码添加到master分支上，其中.gitignore文件也需要添加到暂存区，然后提交到版本库。</p>
+<p><img src="./02_files/1385722-20180911181501033-642209161.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911181546642-619924.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911181613385-74972538.png" alt=""></p>
+<p>提交</p>
+<p><img src="./02_files/1385722-20180911181809600-887883108.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911181840670-1861353179.png" alt=""></p>
+<p><img src="./02_files/1385722-20180911181924117-1511930108.png" alt=""></p>
+<h2 id="blogTitle12"><strong>七.忽略文件语法规范</strong></h2>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./02_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span>空行或是以 # 开头的行即注释行将被忽略。
+可以在前面添加正斜杠 /<span> 忽略当前路径文件，但不包括子目录的同名文件。
+可以在后面添加正斜杠 /<span> 来忽略文件夹。
+可以使用 ! 来否定忽略，即比如在前面用了 *.apk ，然后使用 !<span>a.apk ，则这个a.apk不会被忽略。
+* 用来匹配零个或多个字符，如 *.[oa] 忽略所有以".o"或".a"结尾， *~ 忽略所有以 ~ 结尾的文件（这种文件通常被许多编辑器标记为临时文件）； [] 用来匹配括号内的任一字符，如 [abc] ，也可以在括号内加连接符，如 [0-9] 匹配0至9的数； ?<span> 用来匹配单个字符。
+看了这么多，还是应该来个例子：
+# 忽略 .a 文件
+*<span>.a
+# 但否定忽略 lib.a, 尽管已经在前面忽略了 .a 文件
+!<span>lib.a
+# 仅在当前目录下忽略 TODO 文件， 但不包括子目录下的 subdir/<span>TODO
+/<span>TODO
+# 忽略 build/<span> 文件夹下的所有文件
+build/<span>
+# 忽略 doc/notes.txt, 不包括 doc/server/<span>arch.txt
+doc/*.txt
+# 忽略所有的 .pdf 文件 在 doc/ directory 下的
+doc/**/*.pdf</span></span></span></span></span></span></span></span></span></span></span></span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./02_files/copycode.gif" alt="复制代码"></a></span></div></div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/frankdeng/category/1291135.html" target="_blank">项目管理</a></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/frankdeng/tag/Git/">Git</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(9630303,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;238792d9-f4d4-4d4d-d3b3-08d5a91b4f51&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./02_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./02_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/frankdeng/" target="_blank"><img src="./02_files/20180509232100.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/frankdeng/">Frankdeng</a><br>
+            <a href="http://home.cnblogs.com/u/frankdeng/followees">关注 - 42</a><br>
+            <a href="http://home.cnblogs.com/u/frankdeng/followers">粉丝 - 80</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;238792d9-f4d4-4d4d-d3b3-08d5a91b4f51&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(9630303,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(9630303,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/frankdeng/p/9587920.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/frankdeng/p/9587920.html" title="发布于2018-09-11 17:41">Git（一）Git的简介安装</a><br><a href="https://www.cnblogs.com/frankdeng/p/9627867.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/frankdeng/p/9627867.html" title="发布于2018-09-11 20:53">Git（三）Git的远程仓库</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2018-09-11 18:50</span> <a href="https://www.cnblogs.com/frankdeng/">Frankdeng</a> 阅读(<span id="post_view_count">394</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=9630303" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/frankdeng/p/9630303.html#" onclick="AddToWz(9630303);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=428549,cb_entryId=9630303,cb_blogApp=currentBlogApp,cb_blogUserGuid='238792d9-f4d4-4d4d-d3b3-08d5a91b4f51',cb_entryCreatedDate='2018/9/11 18:50:00';loadViewCount(cb_entryId);var cb_postType=1;var isMarkdown=false;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/frankdeng/p/9630303.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/frankdeng/p/9630303.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万C++/C#源码: 大型实时仿真组态图形源码</a><br><a href="https://cloud.baidu.com/campaign/purchase-2019/index.html?track=cp:dsp|pf:pc|pp:chui-bokeyuan-huodong-19caigouji-BCC-neiyeCH-190311|pu:neiyeCH-wenzilian|ci:2019cgj|kw:2105959" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-百度云&#39;)">【推荐】百度云“猪”你开年行大运，红包疯狂拿，低至1折</a><br><a href="https://gitee.com/enterprises?from=bky-2" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-gitee&#39;)">【推荐】专业便捷的企业级代码托管服务 - Gitee 码云</a><br><a href="https://www.bagevent.com/event/2468856" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-GAITC&#39;)">【活动】2019第四届全球人工技术大会解码“智能+时代”</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="./02_files/gpt.js.下載"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CLO4482ToeECFY8JvAoddhsAdA"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true" src="./02_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/bhlr/p/6759558.html" target="_blank" onclick="clickRecomItmem(6759558)">git --版本对比</a><br>·  <a href="https://www.cnblogs.com/yydcdut/p/4735074.html" target="_blank" onclick="clickRecomItmem(4735074)">git版本还原</a><br>·  <a href="https://www.cnblogs.com/iszhangheng/p/10069376.html" target="_blank" onclick="clickRecomItmem(10069376)">Git版本标签</a><br>·  <a href="https://www.cnblogs.com/ktsjk/p/5400036.html" target="_blank" onclick="clickRecomItmem(5400036)">git 版本控制</a><br>·  <a href="https://www.cnblogs.com/infernal-affairs/p/3795541.html" target="_blank" onclick="clickRecomItmem(3795541)">Git版本控制</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CLS4482ToeECFY8JvAoddhsAdA"><div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" data-google-container-id="2" style="border: 0px; vertical-align: bottom;" data-load-complete="true" src="./02_files/saved_resource(1).html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/622733/" target="_blank">苹果中国下调24期分期付款门槛：500元就可以</a><br> ·  <a href="https://news.cnblogs.com/n/622732/" target="_blank">造福淘宝吃货！聚划算签下柳州螺狮粉打造网红食品：目标销售破百亿</a><br> ·  <a href="https://news.cnblogs.com/n/622731/" target="_blank">欧盟版权改革 版权方与谷歌等巨头有喜有忧</a><br> ·  <a href="https://news.cnblogs.com/n/622730/" target="_blank">Spotify今日宣布将收购洛杉矶播客工作室Parcast</a><br> ·  <a href="https://news.cnblogs.com/n/622717/" target="_blank">如何用一句话通过面试？美国科技名企版</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+ if(enablePostBottom()) {
+    codeHighlight();
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverT2();
+    deliverC1();
+    deliverC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);  
+}
+</script>
+</div>
+
+    
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><!-- 爱心特效 -->
+<script type="text/javascript">window['__document_write_ajax_callbacks__']['4']();</script><script type="text/javascript">window['__document_write_ajax_callbacks__']['1']();</script>
+
+<script type="text/javascript">window['__document_write_ajax_callbacks__']['5']();</script><script>window['__document_write_ajax_callbacks__']['2']();</script><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/frankdeng/">Frankdeng</a><br>园龄：<a href="https://home.cnblogs.com/u/frankdeng/" title="入园时间：2018-04-24">11个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/frankdeng/followers/">80</a><br>关注：<a href="https://home.cnblogs.com/u/frankdeng/followees/">42</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;238792d9-f4d4-4d4d-d3b3-08d5a91b4f51&#39;)">+加关注</a></div><script type="text/javascript">window['__document_write_ajax_callbacks__']['6']();</script><script>window['__document_write_ajax_callbacks__']['3']();</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/02/01&#39;);return false;">&lt;</a></td><td align="center">2019年3月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/04/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">24</td><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td class="CalTodayDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/frankdeng/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/frankdeng/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/frankdeng/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/frankdeng/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/frankdeng/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/frankdeng/tag/Spark/">Spark</a>(24)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Hadoop/">Hadoop</a>(19)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/HBase/">HBase</a>(12)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Hive/">Hive</a>(12)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Kafka/">Kafka</a>(8)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Liunx/">Liunx</a>(7)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Java/">Java</a>(7)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Git/">Git</a>(5)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Flink/">Flink</a>(5)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/Solr/">Solr</a>(5)</li><li><a href="https://www.cnblogs.com/frankdeng/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/frankdeng/category/1279598.html">ETL工具(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/frankdeng/category/1214274.html">Flink(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/frankdeng/category/1206153.html">Flume(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/frankdeng/category/1206140.html">Hadoop(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/frankdeng/category/1215444.html">HBase(12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/frankdeng/category/1206143.html">Hive(11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/frankdeng/category/1292100.html">Kafka(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/frankdeng/category/1206144.html">Spark(19)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/frankdeng/category/1286501.html">Spring(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/frankdeng/category/1292104.html">Storm(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/frankdeng/category/1214239.html">WEB服务(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/frankdeng/category/1285990.html">编程语言(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/frankdeng/category/1276331.html">查询分析(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="https://www.cnblogs.com/frankdeng/category/1249057.html">机器学习</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="https://www.cnblogs.com/frankdeng/category/1260507.html">前端可视化(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="https://www.cnblogs.com/frankdeng/category/1215445.html">任务调度(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="https://www.cnblogs.com/frankdeng/category/1249058.html">深度学习</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="https://www.cnblogs.com/frankdeng/category/1284928.html">数据仓库(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="https://www.cnblogs.com/frankdeng/category/1215440.html">数据库(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="https://www.cnblogs.com/frankdeng/category/1206151.html">搜索ELK(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="https://www.cnblogs.com/frankdeng/category/1206141.html">系统运维(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_21" href="https://www.cnblogs.com/frankdeng/category/1291135.html">项目管理(6)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/frankdeng/archive/2018/12.html">2018年12月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/frankdeng/archive/2018/11.html">2018年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/frankdeng/archive/2018/10.html">2018年10月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/frankdeng/archive/2018/09.html">2018年9月 (18)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/frankdeng/archive/2018/08.html">2018年8月 (21)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/frankdeng/archive/2018/07.html">2018年7月 (24)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/frankdeng/archive/2018/06.html">2018年6月 (28)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/frankdeng/archive/2018/05.html">2018年5月 (20)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/frankdeng/archive/2018/04.html">2018年4月 (6)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/frankdeng/p/9403883.html#4194808">1. Re:Kafka（二）CentOS7.5搭建Kafka2.11-1.1.0集群与简单测试</a></li>
+        <li class="recent_comment_body">您好 ，请教您一下，kafka集群搭建 conf 目录下 的 producer.properties 和 consumer.properties 这两个文件不用配置吗 里面的 bootstrap.........</li>
+        <li class="recent_comment_author">--鸿鹄之志1993</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/frankdeng/p/9452982.html#4162006">2. Re:kafka可视化客户端工具（Kafka Tool）的基本使用</a></li>
+        <li class="recent_comment_body">@wajikaSASL我没有配置过，你可以自己玩下...</li>
+        <li class="recent_comment_author">--Frankdeng</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/frankdeng/p/9452982.html#4158145">3. Re:kafka可视化客户端工具（Kafka Tool）的基本使用</a></li>
+        <li class="recent_comment_body">如果是SASL登陆的，要怎么配置</li>
+        <li class="recent_comment_author">--wajika</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/frankdeng/p/9452982.html#4152532">4. Re:kafka可视化客户端工具（Kafka Tool）的基本使用</a></li>
+        <li class="recent_comment_body">什么都看不了</li>
+        <li class="recent_comment_author">--迅捷羽翼丶羽</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/frankdeng/p/9308585.html#4150037">5. Re:Kafka集成SparkStreaming</a></li>
+        <li class="recent_comment_body">很好的帖子，感谢楼主分享。</li>
+        <li class="recent_comment_author">--人丑就该多编程</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/frankdeng/p/9027037.html">1. Linux之CentOS7.5安装及克隆(14154)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9452982.html">2. kafka可视化客户端工具（Kafka Tool）的基本使用(13901)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9019462.html">3. IDEA2018.1安装配置文档(11882)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9047698.html">4. Hadoop（二）CentOS7.5搭建Hadoop2.7.6完全分布式集群(8307)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9584870.html">5. Kafka集群管理工具kafka-manager的安装使用(3984)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/frankdeng/p/9452982.html">1. kafka可视化客户端工具（Kafka Tool）的基本使用(7)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9139035.html">2. CentOS7.5搭建ELK6.2.4集群及插件安装(3)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9047698.html">3. Hadoop（二）CentOS7.5搭建Hadoop2.7.6完全分布式集群(2)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9463897.html">4. Hive（十）Hive性能调优总结(2)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9005691.html">5. Ntp时间服务器与定时任务Crontab(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/frankdeng/p/9019462.html">1. IDEA2018.1安装配置文档(5)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9139035.html">2. CentOS7.5搭建ELK6.2.4集群及插件安装(2)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9309668.html">3. Hive SQL综合案例(2)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9615856.html">4. Solr7.4.0的API（Solrj）操作(2)</a></li><li><a href="https://www.cnblogs.com/frankdeng/p/9615253.html">5. CentOS7.5搭建Solr7.4.0单机服务(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 Frankdeng
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+
+<iframe id="google_osd_static_frame_5310308615410" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./02_files/saved_resource(2).html"></iframe><script type="text/javascript">
+/*
+    功能：生成博客目录的JS工具
+    测试：IE8，火狐，google测试通过
+    zhang_derek
+    2018-01-03
+*/
+var BlogDirectory = {
+    /*
+        获取元素位置，距浏览器左边界的距离（left）和距浏览器上边界的距离（top）
+    */
+    getElementPosition:function (ele) {        
+        var topPosition = 0;
+        var leftPosition = 0;
+        while (ele){              
+            topPosition += ele.offsetTop;
+            leftPosition += ele.offsetLeft;        
+            ele = ele.offsetParent;     
+        }  
+        return {top:topPosition, left:leftPosition}; 
+    },
+
+    /*
+    获取滚动条当前位置
+    */
+    getScrollBarPosition:function () {
+        var scrollBarPosition = document.body.scrollTop || document.documentElement.scrollTop;
+        return  scrollBarPosition;
+    },
+    
+    /*
+    移动滚动条，finalPos 为目的位置，internal 为移动速度
+    */
+    moveScrollBar:function(finalpos, interval) {
+
+        //若不支持此方法，则退出
+        if(!window.scrollTo) {
+            return false;
+        }
+
+        //窗体滚动时，禁用鼠标滚轮
+        window.onmousewheel = function(){
+            return false;
+        };
+          
+        //清除计时
+        if (document.body.movement) { 
+            clearTimeout(document.body.movement); 
+        } 
+
+        var currentpos =BlogDirectory.getScrollBarPosition();//获取滚动条当前位置
+
+        var dist = 0; 
+        if (currentpos == finalpos) {//到达预定位置，则解禁鼠标滚轮，并退出
+            window.onmousewheel = function(){
+                return true;
+            }
+            return true; 
+        } 
+        if (currentpos < finalpos) {//未到达，则计算下一步所要移动的距离
+            dist = Math.ceil((finalpos - currentpos)/10); 
+            currentpos += dist; 
+        } 
+        if (currentpos > finalpos) { 
+            dist = Math.ceil((currentpos - finalpos)/10); 
+            currentpos -= dist; 
+        }
+        
+        var scrTop = BlogDirectory.getScrollBarPosition();//获取滚动条当前位置
+        window.scrollTo(0, currentpos);//移动窗口
+        if(BlogDirectory.getScrollBarPosition() == scrTop)//若已到底部，则解禁鼠标滚轮，并退出
+        {
+            window.onmousewheel = function(){
+                return true;
+            }
+            return true;
+        }
+        
+        //进行下一步移动
+        var repeat = "BlogDirectory.moveScrollBar(" + finalpos + "," + interval + ")"; 
+        document.body.movement = setTimeout(repeat, interval); 
+    },
+    
+    htmlDecode:function (text){
+        var temp = document.createElement("div");
+        temp.innerHTML = text;
+        var output = temp.innerText || temp.textContent;
+        temp = null;
+        return output;
+    },
+
+    /*
+    创建博客目录，
+    id表示包含博文正文的 div 容器的 id，
+    mt 和 st 分别表示主标题和次级标题的标签名称（如 H2、H3，大写或小写都可以！），
+    interval 表示移动的速度
+    */
+    createBlogDirectory:function (id, mt, st, interval){
+         //获取博文正文div容器
+        var elem = document.getElementById(id);
+        if(!elem) return false;
+        //获取div中所有元素结点
+        var nodes = elem.getElementsByTagName("*");
+        //创建博客目录的div容器
+        var divSideBar = document.createElement('DIV');
+        divSideBar.className = 'uprightsideBar';
+        divSideBar.setAttribute('id', 'uprightsideBar');
+        var divSideBarTab = document.createElement('DIV');
+        divSideBarTab.setAttribute('id', 'sideBarTab');
+        divSideBar.appendChild(divSideBarTab);
+        var h2 = document.createElement('H2');
+        divSideBarTab.appendChild(h2);
+        var txt = document.createTextNode('目录导航');
+        h2.appendChild(txt);
+        var divSideBarContents = document.createElement('DIV');
+        divSideBarContents.style.display = 'none';
+        divSideBarContents.setAttribute('id', 'sideBarContents');
+        divSideBar.appendChild(divSideBarContents);
+        //创建自定义列表
+        var dlist = document.createElement("dl");
+        divSideBarContents.appendChild(dlist);
+        var num = 0;//统计找到的mt和st
+        mt = mt.toUpperCase();//转化成大写
+        st = st.toUpperCase();//转化成大写
+        //遍历所有元素结点
+        for(var i=0; i<nodes.length; i++)
+        {
+            if(nodes[i].nodeName == mt|| nodes[i].nodeName == st)    
+            {
+                //获取标题文本
+                var nodetext = nodes[i].innerHTML.replace(/<\/?[^>]+>/g,"");//innerHTML里面的内容可能有HTML标签，所以用正则表达式去除HTML的标签
+                nodetext = nodetext.replace(/ /ig, "");//替换掉所有的 
+                nodetext = BlogDirectory.htmlDecode(nodetext);
+                //插入锚        
+                nodes[i].setAttribute("id", "blogTitle" + num);
+                var item;
+                switch(nodes[i].nodeName)
+                {
+                    case mt:    //若为主标题 
+                        item = document.createElement("dt");
+                        break;
+                    case st:    //若为子标题
+                        item = document.createElement("dd");
+                        break;
+                }
+                
+                //创建锚链接
+                var itemtext = document.createTextNode(nodetext);
+                item.appendChild(itemtext);
+                item.setAttribute("name", num);
+                item.onclick = function(){        //添加鼠标点击触发函数
+                    var pos = BlogDirectory.getElementPosition(document.getElementById("blogTitle" + this.getAttribute("name")));
+                    if(!BlogDirectory.moveScrollBar(pos.top, interval)) return false;
+                };            
+                
+                //将自定义表项加入自定义列表中
+                dlist.appendChild(item);
+                num++;
+            }
+        }
+        
+        if(num == 0) return false; 
+        /*鼠标进入时的事件处理*/
+        divSideBarTab.onmouseenter = function(){
+            divSideBarContents.style.display = 'block';
+        }
+        /*鼠标离开时的事件处理*/
+        divSideBar.onmouseleave = function() {
+            divSideBarContents.style.display = 'none';
+        }
+
+        document.body.appendChild(divSideBar);
+    }
+    
+};
+
+window.onload=function(){
+    /*页面加载完成之后生成博客目录*/
+    BlogDirectory.createBlogDirectory("cnblogs_post_body","h2","h3",20);
+}
+</script><script type="text/javascript">
+
+(function(window,document,undefined){
+        var hearts = [];
+        window.requestAnimationFrame = (function(){
+                return window.requestAnimationFrame || 
+                           window.webkitRequestAnimationFrame ||
+                           window.mozRequestAnimationFrame ||
+                           window.oRequestAnimationFrame ||
+                           window.msRequestAnimationFrame ||
+                           function (callback){
+                                   setTimeout(callback,1000/60);
+                           }
+        })();
+        init();
+        function init(){
+                css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+                attachEvent();
+                gameloop();
+        }
+        function gameloop(){
+                for(var i=0;i<hearts.length;i++){
+                    if(hearts[i].alpha <=0){
+                            document.body.removeChild(hearts[i].el);
+                            hearts.splice(i,1);
+                            continue;
+                    }
+                    hearts[i].y--;
+                    hearts[i].scale += 0.004;
+                    hearts[i].alpha -= 0.013;
+                    hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+            }
+            requestAnimationFrame(gameloop);
+        }
+        function attachEvent(){
+                var old = typeof window.onclick==="function" && window.onclick;
+                window.onclick = function(event){
+                        old && old();
+                        createHeart(event);
+                }
+        }
+        function createHeart(event){
+            var d = document.createElement("div");
+            d.className = "heart";
+            hearts.push({
+                    el : d,
+                    x : event.clientX - 5,
+                    y : event.clientY - 5,
+                    scale : 1,
+                    alpha : 1,
+                    color : randomColor()
+            });
+            document.body.appendChild(d);
+    }
+    function css(css){
+            var style = document.createElement("style");
+                style.type="text/css";
+                try{
+                    style.appendChild(document.createTextNode(css));
+                }catch(ex){
+                    style.styleSheet.cssText = css;
+                }
+                document.getElementsByTagName('head')[0].appendChild(style);
+    }
+        function randomColor(){
+                return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+        }
+})(window,document);
+
+</script><script type="text/javascript">window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"135"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script><script type="text/javascript">getFollowStatus('238792d9-f4d4-4d4d-d3b3-08d5a91b4f51')</script><div class="uprightsideBar" id="uprightsideBar"><div id="sideBarTab"><h2>目录导航</h2></div><div id="sideBarContents" style="display: none;"><dl><dt name="0">一.创建版本库</dt><dt name="1">二.添加文件</dt><dd name="2">1.添加文件步骤</dd><dd name="3">2.工作区和暂存区</dd><dt name="4">三.修改文件</dt><dd name="5">1.提交修改</dd><dd name="6">2.查看修改历史</dd><dd name="7">3.差异比较</dd><dd name="8">4.还原修改</dd><dt name="9">四.删除文件</dt><dt name="10">五.还原删除文件</dt><dt name="11">六.案例：将项目提交到版本库</dt><dt name="12">七.忽略文件语法规范</dt></dl></div></div></body></html>

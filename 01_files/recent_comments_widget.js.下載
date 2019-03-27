@@ -1,0 +1,97 @@
+
+
+document.write(' \
+<style type="text/css" media="screen">\
+	 .dsq-widget ul.dsq-widget-list {\
+	 padding: 0;\
+	 margin: 0;\
+	 text-align: left;\
+	 }\
+	 img.dsq-widget-avatar {\
+	 width: 32px;\
+	 height: 32px;\
+	 border: 0px;\
+	 margin: 0px;\
+	 padding: 0px 3px 3px 0px;\
+	 float: left;\
+	 }\
+	 a.dsq-widget-user {\
+	 font-weight: bold;\
+	 }\
+	 a.dsq-widget-thread {\
+	 font-weight: bold;\
+	 }\
+	 p.dsq-widget-meta {\
+	 clear: both;\
+	 font-size: 80%;\
+	 padding: 0;\
+	 margin: 0;\
+	 }\
+	 li.dsq-widget-item {\
+	 margin: 15px 0;\
+	 list-style-type: none;\
+	 clear: both;\
+	 }\
+	 span.dsq-widget-clout {\
+	 padding: 0 2px;\
+	 background-color: #ff7300;\
+	 color: #fff;\
+	 }\
+	 table.dsq-widget-horiz td {\
+	 padding-right: 15px;\
+	 }\
+	 .dsq-widget-comment p {\
+	 display: inline;\
+	 }\
+	 </style>\
+	 <ul class="dsq-widget-list">\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p><a href="https://jmeter.apache.org/usermanual/functions.html#__thr" rel="nofollow noopener" title="https://jmeter.apache.org/usermanual/functions.html#__thr">https://jmeter.apache.org/u...</a>...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2017/06/06/013503">[效能調教] 使用 JMeter 作為網站效能參考指標 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2017/06/06/013503#comment-4350543374">1 month ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_Ev7Cjsr5rd/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/1552325972/images/noavatar92.png"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_Ev7Cjsr5rd/">張文鑫</a>\
+	 <span class="dsq-widget-comment"><p>想請教if controller那邊，為何您知道變數名稱為 ${__threadNum}  ?</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2017/06/06/013503">[效能調教] 使用 JMeter 作為網站效能參考指標 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2017/06/06/013503#comment-4350495383">1 month ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p>文章撰寫時的最新版本為 bootstrap@4.0.0-alpha.6 ，確實跟兩年後目前 4.2.1...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2017/03/02/202940">[Vue] 跟著 Vue 闖蕩前端世界 - 03 加入 Bootstrap 美化頁面 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2017/03/02/202940#comment-4267811163">2 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_dK0GUqBLh9/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/1552325972/images/noavatar92.png"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_dK0GUqBLh9/">John</a>\
+	 <span class="dsq-widget-comment"><p>完全不知道這篇是怎麼成功的, 連navbar都不能帶入, 真的是很神奇....</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2017/03/02/202940">[Vue] 跟著 Vue 闖蕩前端世界 - 03 加入 Bootstrap 美化頁面 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2017/03/02/202940#comment-4262067197">2 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_Du4dXx2fW9/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/1552325972/images/noavatar92.png"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_Du4dXx2fW9/">lounge</a>\
+	 <span class="dsq-widget-comment"><p>感謝經驗分享，目前也參考這個方式進行命名了。 設定了字段區間 ex \'__API類型.錯誤碼.狀態\'...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2018/05/12/012517">[Vue] 跟著 Vue 闖蕩前端世界 - 11 使用 vue-i18n 打造多國語系網站環境 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2018/05/12/012517#comment-4164830395">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p>在專案中只要是多國語系的 key 都要保持相同 format...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2018/05/12/012517">[Vue] 跟著 Vue 闖蕩前端世界 - 11 使用 vue-i18n 打造多國語系網站環境 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2018/05/12/012517#comment-4161640565">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_Du4dXx2fW9/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/1552325972/images/noavatar92.png"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_Du4dXx2fW9/">lounge</a>\
+	 <span class="dsq-widget-comment"><p>剛看到前綴這個方式很棒，那想請問錯誤代碼你也是一致性帶前綴。<br>例如: __001 你也是一樣會帶入嗎？</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2018/05/12/012517">[Vue] 跟著 Vue 闖蕩前端世界 - 11 使用 vue-i18n 打造多國語系網站環境 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2018/05/12/012517#comment-4161479193">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p>謝謝你的留言</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2015/06/07/151505">[Tips][C#] 正確重拋例外 (Exception) 的方式 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2015/06/07/151505#comment-4080400512">6 months ago</a></p>\
+	 </li>\
+	 </ul>\
+');
